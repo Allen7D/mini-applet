@@ -25,7 +25,7 @@
         });
         // 暴露给 Native 的方法
         window.JSBridge.onReceiveNativeMessage = (msg) => {
-            console.log('Webview收到消息:', msg);
+            console.log('Webview 接收到消息:', msg);
             document.getElementById("message").innerText = msg;
         };
     </script>
