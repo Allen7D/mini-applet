@@ -1,0 +1,23 @@
+{
+  "name": "mini-applet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server ./ -p 9527"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Allen7D/mini-applet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Allen7D/mini-applet/issues"
+  },
+  "homepage": "https://github.com/Allen7D/mini-applet#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

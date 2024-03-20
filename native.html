@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native Scope</title>
+</head>
+
+<body>
+    <h5>Native Scope</h5>
+    <div style="margin-bottom: 20px;">
+        <div>
+            <span style="color: green;">Native 接收到消息:</span>
+            <span id="message"></span>
+        </div>
+        <button id="button">向 Webview 发送消息</button>
+    </div>
+    <iframe id="webview" src="./iframe.html"></iframe>
+    <script type="text/javascript">
+        const webview = document.getElementById("webview");
+        // 向 Webview（用 iframe 模拟）注入 JSBridge 对象
+        webview.contentWindow.JSBridge = {
+            onReceiveWebviewMessage: (msg) => {
+                console.log(`Native 接收到消息: ${msg}`);
+                document.getElementById("message").innerText = msg;
+            }
+        }
+
+        let index = 1;
+        const button = document.getElementById("button");
+        button.addEventListener('click', () => {
+            // 执行 Webview 暴露出来的方法
+            webview.contentWindow.JSBridge.onReceiveNativeMessage(`这是来自 Native 的消息${index}`);
+            index++;
+        })
+    </script>
+</body>
+
+</html>
